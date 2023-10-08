@@ -1,0 +1,31 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Cervantes~Saavedra%
+, Raffel%
+\BCBL {}\ \BBA {} Wilson%
+}{%
+Cervantes~Saavedra%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1999}}%
+}]{%
+cervantes1999}
+\APACinsertmetastar {%
+cervantes1999}%
+\begin{APACrefauthors}%
+Cervantes~Saavedra, M\BPBI d.%
+, Raffel, B.%
+\BCBL {}\ \BBA {} Wilson, D\BPBI d\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1999}.
+\newblock
+\APACrefbtitle {Don {Quijote}: a new translation, backgrounds and contexts,
+  criticism} {Don {Quijote}: a new translation, backgrounds and contexts,
+  criticism}\ (\PrintOrdinal{1st ed}\ \BEd).
+\newblock
+\APACaddressPublisher{New York}{W.W. Norton}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
