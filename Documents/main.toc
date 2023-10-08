@@ -1,9 +1,0 @@
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\contentsline {section}{\large Título I}{1}{section*.4}%
-\contentsline {subsection}{Título II}{1}{section*.5}%
-\contentsline {subsubsection}{Título III}{1}{section*.6}%
-\contentsline {paragraph}{Título IV}{1}{section*.7}%
-\contentsline {paragraph}{Título IV ii}{1}{section*.8}%
-\contentsline {subparagraph}{\relax }{1}{section*.9}%
-\contentsline {section}{\large \textbf {Referencias}}{2}{section*.10}%
