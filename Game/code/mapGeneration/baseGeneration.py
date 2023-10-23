@@ -17,17 +17,19 @@ def drunkenWalkGenerator():
     drunk = {
         'removeBlocks': removeBlocks,
         'padding': 2,
-        'x': int( levelWidth / 2 ),
-        'y': int( levelHeight / 2 )
+        'x': int( 3 ),
+        'y': int( 3 )
     }
     
     startCoordinate = [drunk['x'], drunk['y']]
     
     level = getWallLevel()
     
+    level[drunk['y']][drunk['x']] = 'p'
+    
+    
     p_x = random.randint(drunk['padding'], levelWidth - 1 - drunk['padding'])
     p_y = random.randint(drunk['padding'], levelHeight - 1 - drunk['padding'])
-    level[p_y][p_x] = 'p'
     
     drunk['x'] = p_x
     drunk['y'] = p_y
@@ -132,3 +134,8 @@ def generateBestLevel(amountOfLevels):
     score, bestLevel = evaluationScores.pop(0)
     
     return bestLevel
+
+WORLD_MAP = generateBestLevel(100)
+
+for row in WORLD_MAP:
+    print("".join(row))
