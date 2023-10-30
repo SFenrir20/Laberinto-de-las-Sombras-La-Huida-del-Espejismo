@@ -32,7 +32,8 @@
 % Portada
 \thispagestyle{empty}
 \title{\Large Generación procedural de mapas en videojuegos}
-\author{Salazar Arias, Luis Santiago de Blass \\Bravo Ocampo, David Aquiles \\ Flores Grados, Andrea Hilda\\ Narvaez Garriazo, Cristel Margarita} % (autores separados, consultar al docente)
+\author{ Salazar Arias, Luis Santiago de Blass \\Bravo Ocampo, David Aquiles \\Flores Grados, Andrea Hilda \\ Narvaez Garriazo, Cristel Margarita
+}
 % Manera oficial de colocar los autores:
 %\author{Autor(a) I, Autor(a) II, Autor(a) III, Autor(a) X}
 \affiliation{\Huge\textbf{Universidad San Ignacio de Loyola}}
@@ -41,6 +42,8 @@
 \duedate{2023}
 \begin{document}
 \maketitle
+
+
 
 
 % Índices
@@ -89,14 +92,32 @@ de colisiones en videojuegos, así como sus ventajas, desventajas y aplicaciones
 una revisión bibliográfica de las fuentes más relevantes sobre el tema, se explicarán conceptos teóricos 
 y se presentarán ejemplos prácticos.\\
 \section{\large Marco Teorico}
-\noindent \maskCitet{martinez2015}
-La generación procedural de mapas se puede definir como el uso de algoritmos para crear contenido para videojuegos sin intervención humana directa. Esta técnica se basa en la definición de reglas, parámetros y funciones que determinan las características del mapa generado, como su forma, tamaño, estructura, color o textura. Estas reglas pueden ser deterministas o aleatorias, lo que implica que el mapa generado sea siempre el mismo o diferente cada vez que se ejecuta el algoritmo. Existen diferentes tipos y niveles de generación procedural de mapas según el grado de control que tenga el desarrollador o el jugador sobre el contenido generado. Según Román-Ibáñez, se pueden distinguir cuatro niveles: generación offline, generación online, generación interactiva y generación mixta.
+La generación procedural de mapas se puede definir como el uso de algoritmos para crear contenido para videojuegos sin intervención humana directa. Esta técnica se basa en la definición de reglas, parámetros y funciones que determinan las características del mapa generado, como su forma, tamaño, estructura, color o textura. Estas reglas pueden ser deterministas o aleatorias, lo que implica que el mapa generado sea siempre el mismo o diferente cada vez que se ejecuta el algoritmo. Existen diferentes tipos y niveles de generación procedural de mapas según el grado de control que tenga el desarrollador o el jugador sobre el contenido generado. Según \noindent \maskCitet{romanibanez2014}
+, se pueden distinguir cuatro niveles: generación offline, generación online, generación interactiva y generación mixta.
 
 En este caso estamos utilizando técnicas y algoritmos para crear contenido de forma automática o semiautomática sin la necesidad de un diseño manual. En particular, estamos utilizando la técnica de generación offline, donde el mapa se genera antes de que el juego empiece y no cambia durante la partida.
 
 Para generar los mapas, estamos utilizando diferentes técnicas y algoritmos. Combinando estas técnicas con otro algoritmo de pathfinding para buscar el "mejor mapa posible". Para mejorar la coherencia y la unicidad del contenido generado, estamos definiendo reglas y parámetros claros y coherentes que determinan las características del mapa generado. También estamos considerando la detección de colisiones, que es esencial para la jugabilidad y la física del juego, y utilizando diferentes técnicas y algoritmos para optimizar y simplificar este proceso. En resumen, nuestro trabajo se enfoca en la generación procedural de mapas en videojuegos utilizando diferentes técnicas y algoritmos para crear contenido de forma automática o semiautomática, y mejorando la coherencia y la unicidad del contenido generado.
+\section{\large Metodología}
+En el desarrollo de este proyecto, se utilizó una metodología que incluyó diferentes etapas, desde el diseño del estudio hasta el análisis de datos. A continuación, se detalla cada una de estas etapas:
 
+Diseño del estudio:
+En esta etapa, se indagó información en papers y artículos para la generación de mapas. Entre las diferentes opciones consideradas, se decidió utilizar el algoritmo de "drunkard's walk" debido a su facilidad de uso. Además, se agregó una variante del algoritmo de búsqueda en amplitud ("breadth first search") para buscar el mapa más "óptimo". Para la lógica del juego en general, se tomaron como referencia algunos video tutoriales, utilizando la librería de Python llamada pygame para crear el juego.
+
+Recopilación de datos:
+En esta etapa, se investigaron los papers relacionados con la generación de mapas procedurales. Se tomó la decisión de enfocarse en la generación de mapas en 2D, ya que era más seguro de programar en el nivel y tiempo disponibles. Durante la recopilación de datos, se realizaron resúmenes y lecturas rápidas para seleccionar el código del algoritmo de "drunkard's walk" y el algoritmo de búsqueda en amplitud ("breadth first search"), ya que eran aplicables al proyecto. Por otro lado, se decidió descartar el uso del algoritmo de "perlin noise" debido a que no se ajustaba a las necesidades del proyecto.
+
+Análisis de datos:
+En esta etapa, se desarrollaron bocetos e ideas para la creación de un videojuego en 2D. Esto llevó a analizar los papers y video tutoriales que se enfocaban en el desarrollo de juegos RPG de vista superior ("top down"). Gracias a este análisis, se logró construir e implementar el código necesario para la generación de mapas y caminos en el juego.
+\noindent \maskCitet{koesnaedi2022}
 %\noindent \maskCitet{vilanova2021}\\
+\vspace{10pt}
+\vspace{10pt}
+\vspace{10pt}
+\vspace{10pt}
+\vspace{10pt}
+\vspace{10pt}
+
 \section{\large Objetivos}
 \subsection{Objetivo general} 
 Analizar las principales técnicas de generación de mapas procedimentales y detección de colisiones en videojuegos, así como sus ventajas, desventajas y aplicaciones. Para ello, se realizará una revisión bibliográfica de las fuentes más relevantes sobre el tema, se explicarán conceptos teóricos y se presentarán ejemplos prácticos.

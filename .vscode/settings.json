@@ -1,0 +1,7 @@
+{
+    "conventionalCommits.scopes": [
+        "Documents",
+        "Graphics",
+        "Code"
+    ]
+}
