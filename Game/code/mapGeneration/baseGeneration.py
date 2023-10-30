@@ -1,18 +1,20 @@
 import random
- 
-levelWidth = 100
-levelHeight = 50
+import numpy as np
 
-removeBlocks = 2386
+levelWidth      = 20
+levelHeight     = 20
+removeBlocks    = 50
+currentMap = []
 
-### Easy Procedural Generation: Drunken Walk Algorithm
- 
-def getLevelRow():
-    return ['x'] * levelWidth
- 
-def getWallLevel():
-    return [getLevelRow() for _ in range(levelHeight)]
- 
+def getCurrentMap():
+    return currentMap
+
+def getLevelRow(baseChar):
+    return [baseChar] * levelWidth
+
+def getWallLevel(baseChar):
+    return [getLevelRow(baseChar) for _ in range(levelHeight)]
+
 def drunkenWalkGenerator():
     drunk = {
         'removeBlocks': removeBlocks,
@@ -23,16 +25,7 @@ def drunkenWalkGenerator():
     
     startCoordinate = [drunk['x'], drunk['y']]
     
-    level = getWallLevel()
-    
-    level[drunk['y']][drunk['x']] = 'p'
-    
-    
-    p_x = random.randint(drunk['padding'], levelWidth - 1 - drunk['padding'])
-    p_y = random.randint(drunk['padding'], levelHeight - 1 - drunk['padding'])
-    
-    drunk['x'] = p_x
-    drunk['y'] = p_y
+    level = getWallLevel('x')
     
     while drunk['removeBlocks'] >= 0:
         x = drunk['x']
@@ -53,12 +46,55 @@ def drunkenWalkGenerator():
         if roll == 4 and y < levelHeight - 1 - drunk['padding']:
             drunk['y'] += 1
     
-    level[y][x] = 'e'
     endCoordinate = [x, y]
     
     return [level, startCoordinate, endCoordinate]
 
-### Easy Pathfinding: Breadth-First Algorithm
+def generateCounting(num, total):
+    map = drunkenWalkGenerator()
+    porcentaje_completado = (num + 1) / total * 100
+    mensaje = f"Generando mapas ({num+1}/{total}) - Completado: {porcentaje_completado:.2f}%"
+    print(mensaje, end='\r')
+    return map
+    
+def generateExitMap(exitCord):
+    global currentMap
+    
+    exitMap = getWallLevel(' ')
+    
+    exitMap[exitCord[1]][exitCord[0]] = '00'
+    currentMap[exitCord[1]][exitCord[0]] = '00'
+    
+    return exitMap
+
+def empty2x2(cord):
+    return currentMap[cord[1]][cord[0]] == ' ' and currentMap[cord[1]+1][cord[0]] == ' ' and currentMap[cord[1]][cord[0]+1] == ' ' and currentMap[cord[1]+1][cord[0]+1] == ' '
+
+def fill2x2(map, cord):
+    map[cord[1]][cord[0]] = 'o'
+    map[cord[1]][cord[0]+1] = 'o'
+    map[cord[1]+1][cord[0]] = 'o'
+    map[cord[1]+1][cord[0]+1] = 'o'
+    
+def placeEnemySpawn(monstersMap, numMonsters):
+    emptyLocations = [(x, y) for y in range(levelHeight) for x in range(levelWidth) if empty2x2([x, y])]
+    
+    if numMonsters > len(emptyLocations):
+        numMonsters = len(emptyLocations)
+    
+    random_empty_locations = random.sample(emptyLocations, numMonsters)
+    
+    for x, y in random_empty_locations:
+        fill2x2(monstersMap, [x, y])
+        monstersMap[y][x] = 'm'
+        fill2x2(currentMap, [x, y])
+        currentMap[y][x] = 'm'
+
+def generateMonstersMap(numMonsters):
+    monstersMap = getWallLevel(' ')
+    #placeEnemies(monstersMap, numMonsters)
+    placeEnemySpawn(monstersMap, numMonsters)
+    return monstersMap
  
 def getNextMoves(x, y):
     return {
@@ -101,16 +137,21 @@ def getShortestPath(level, startCoordinate, endCoordinate):
     
     return []
  
-### Improved Procedural Generation:
-### Drunken Walk + Breadth First Algorithm
- 
 def generateLevels(amount):
-    return [drunkenWalkGenerator() for _ in range(amount)]
+    return [generateCounting(i, amount) for i in range(amount)]
  
 def evaluateLevels(levels):
     evaluationScores = []
     
-    for generatedLevel, startCoordinate, endCoordinate in levels:
+    i=0
+    
+    print()
+    
+    for i, (generatedLevel, startCoordinate, endCoordinate) in enumerate(levels):
+        porcentaje_completado = (i + 1) / len(levels) * 100
+        mensaje = f"Evaluando mapas ({i+1}/{len(levels)}) - Completado: {porcentaje_completado:.2f}%"
+        print(mensaje, end='\r')
+        
         shortestSolution = getShortestPath(
             generatedLevel, 
             startCoordinate, 
@@ -118,24 +159,34 @@ def evaluateLevels(levels):
         )
         
         evaluationScores.append(
-            [len(shortestSolution), generatedLevel]
+            [len(shortestSolution), generatedLevel, endCoordinate]
         )
+    
+    print()
     
     return evaluationScores
  
-def generateBestLevel(amountOfLevels):
+def generateBestLevel(amountOfLevels, width, height, blocks):
+    
+    global levelWidth
+    global levelHeight
+    global removeBlocks
+    global currentMap
+    
+    levelWidth      = width
+    levelHeight     = height
+    removeBlocks    = blocks
+    
     levels = generateLevels(amountOfLevels)
     
     evaluationScores = evaluateLevels(levels)
     
-    evaluationScores.sort()
-    evaluationScores.reverse()
+    evaluationScores.sort(reverse = True)
     
-    score, bestLevel = evaluationScores.pop(0)
+    score, bestLevel, endCoordinate = evaluationScores.pop(0)
     
-    return bestLevel
-
-WORLD_MAP = generateBestLevel(100)
-
-for row in WORLD_MAP:
-    print("".join(row))
+    print("Mapa seleccionado")
+    
+    currentMap = np.copy(bestLevel)
+    
+    return [bestLevel, endCoordinate]
