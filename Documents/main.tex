@@ -1,6 +1,12 @@
 % PLANTILLA APA7
-% Creado por: Isaac Palma Medina
-% Última actualización: 25/07/2021
+% Creado por: [Tu Nombre]
+% Última actualización: [Fecha]
+% @COPYLEFT
+
+% Fuentes consultadas (todos los derechos reservados):  
+% Normas APA. (2019). Guía Normas APA. [URL de la guía]
+% Tecnológico de Costa Rica [Richmond]. (2020, 16 abril). LaTeX desde cero con Overleaf (1 de 3) [Vídeo]. YouTube. [URL del video]
+% Weiss, D. (2021). Formatting documents in APA style (7th Edition) with the apa7 LATEX class. [URL del documento]
 % @COPYLEFT
 
 % Fuentes consultadas (todos los derechos reservados):  
@@ -83,21 +89,12 @@ de colisiones en videojuegos, así como sus ventajas, desventajas y aplicaciones
 una revisión bibliográfica de las fuentes más relevantes sobre el tema, se explicarán conceptos teóricos 
 y se presentarán ejemplos prácticos.\\
 \section{\large Marco Teorico}
-La generación procedural de mapas se puede definir como el uso de algoritmos para crear contenido para videojuegos sin intervención humana directa \noindent \maskCitet{martinez2015}. Esta técnica se basa en la definición de reglas, parámetros y funciones que determinan las características del mapa generado, como su forma, tamaño, estructura, color o textura. Estas reglas pueden ser deterministas o aleatorias, lo que implica que el mapa generado sea siempre el mismo o diferente cada vez que se ejecuta el algoritmo.
+\noindent \maskCitet{martinez2015}
+La generación procedural de mapas se puede definir como el uso de algoritmos para crear contenido para videojuegos sin intervención humana directa. Esta técnica se basa en la definición de reglas, parámetros y funciones que determinan las características del mapa generado, como su forma, tamaño, estructura, color o textura. Estas reglas pueden ser deterministas o aleatorias, lo que implica que el mapa generado sea siempre el mismo o diferente cada vez que se ejecuta el algoritmo. Existen diferentes tipos y niveles de generación procedural de mapas según el grado de control que tenga el desarrollador o el jugador sobre el contenido generado. Según Román-Ibáñez, se pueden distinguir cuatro niveles: generación offline, generación online, generación interactiva y generación mixta.
 
-Existen diferentes tipos y niveles de generación procedural de mapas según el grado de control que tenga el desarrollador o el jugador sobre el contenido generado. Según \noindent\maskCitet{romanibanez2014}, se pueden distinguir cuatro niveles:
+En este caso estamos utilizando técnicas y algoritmos para crear contenido de forma automática o semiautomática sin la necesidad de un diseño manual. En particular, estamos utilizando la técnica de generación offline, donde el mapa se genera antes de que el juego empiece y no cambia durante la partida.
 
-Generación offline: El mapa se genera antes de que el juego empiece y no cambia durante la partida. El desarrollador tiene un control total sobre el algoritmo y sus parámetros. Un ejemplo es Civilization.
-Generación online: El mapa se genera durante la partida según las acciones del jugador o las condiciones del juego. El desarrollador tiene un control parcial sobre el algoritmo y sus parámetros. Un ejemplo es Spelunky.
-Generación interactiva: El mapa se genera durante la partida según las preferencias o decisiones del jugador. El jugador tiene un control parcial sobre el algoritmo y sus parámetros. Un ejemplo es SimCity.
-Generación mixta: El mapa se genera combinando elementos predefinidos con elementos procedurales. El desarrollador y el jugador tienen un control compartido sobre el algoritmo y sus parámetros. Un ejemplo es Terraria.
-Para generar mapas procedurales se pueden utilizar diferentes técnicas y algoritmos según el tipo y la dimensión del mapa deseado. Algunas de las técnicas más comunes son:
-
-Perlin Noise: Es un algoritmo que genera un ruido coherente, es decir, una función que produce valores aleatorios pero suaves y continuos. Se puede utilizar para crear mapas de altura, que son matrices bidimensionales que representan la elevación del terreno en cada punto. El ruido de Perlin se puede combinar con otros algoritmos o funciones matemáticas para modificar la escala, la frecuencia o la amplitud del mapa generado. Un ejemplo es Minecraft.
-Algoritmos de Laberinto: Son algoritmos que generan laberintos, es decir, estructuras compuestas por pasillos y paredes que forman un camino único entre dos puntos. Se pueden utilizar para crear mapas de mazmorras, que son espacios cerrados y complejos que contienen enemigos, objetos y salidas. El algoritmo de Prim es uno de los más utilizados para generar laberintos, ya que parte de un grafo completo y va eliminando aristas aleatoriamente hasta formar un árbol de expansión mínimo. Un ejemplo es Rogue.
-Algoritmos de Voronoi: Son algoritmos que generan diagramas de Voronoi, es decir, particiones del espacio en regiones poligonales según la distancia a un conjunto de puntos. Se pueden utilizar para crear mapas de islas, que son conjuntos de tierras rodeadas por agua. El algoritmo de Lloyd es uno de los más utilizados para generar diagramas de Voronoi, ya que parte de un conjunto de puntos aleatorios y los reubica iterativamente hasta que las regiones sean lo más regulares posibles. Un ejemplo es Don’t Starve.
-Algoritmos de Autómatas Celulares: Son algoritmos que generan patrones complejos a partir de reglas simples que se aplican a cada celda de una matriz bidimensional. Se pueden utilizar para crear mapas de cuevas, que son espacios subterráneos y irregulares que contienen rocas, minerales y agua. El algoritmo de Conway es uno de los más utilizados para generar autómatas celulares, ya que parte de una matriz aleatoria y la actualiza según el número de vecinos vivos o muertos que tenga cada celda. Un ejemplo es Dwarf Fortress.
-La detección de colisiones se puede definir como el proceso de determinar si dos o más objetos del juego entran en contacto o se superponen \noindent\maskCitet{alonso2015}. Esta técnica es fundamental para el funcionamiento y la física del juego, ya que permite simular el comportamiento realista de los objetos, así como las interacciones entre ellos y con el jugador.
+Para generar los mapas, estamos utilizando diferentes técnicas y algoritmos. Combinando estas técnicas con otro algoritmo de pathfinding para buscar el "mejor mapa posible". Para mejorar la coherencia y la unicidad del contenido generado, estamos definiendo reglas y parámetros claros y coherentes que determinan las características del mapa generado. También estamos considerando la detección de colisiones, que es esencial para la jugabilidad y la física del juego, y utilizando diferentes técnicas y algoritmos para optimizar y simplificar este proceso. En resumen, nuestro trabajo se enfoca en la generación procedural de mapas en videojuegos utilizando diferentes técnicas y algoritmos para crear contenido de forma automática o semiautomática, y mejorando la coherencia y la unicidad del contenido generado.
 
 %\noindent \maskCitet{vilanova2021}\\
 \section{\large Objetivos}
@@ -122,5 +119,4 @@ Analizar las ventajas, desventajas y aplicaciones de las técnicas de generació
 % Referencias
 \renewcommand\refname{\large\textbf{Referencias}}
 \bibliography{mibibliografia}
-
 \end{document}
