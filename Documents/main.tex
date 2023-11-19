@@ -64,7 +64,10 @@
 
 % Cuerpo
 \pagenumbering{arabic}
-
+\section{\large Agradecimiento}
+Queremos expresar nuestro más sincero agradecimiento a todas las personas que nos han brindado su apoyo durante el desarrollo de este proyecto. En primer lugar, deseamos agradecer a nuestro querido profesor, quien generosamente compartió sus conocimientos y nos enseñó a lo largo de todo el ciclo de desarrollo. Su guía y apoyo han sido fundamentales para el éxito de este proyecto.
+También queremos extender nuestro agradecimiento a nuestros amigos y familiares, quienes nos han brindado su aliento constante y comprensión en cada etapa de este proceso. Su apoyo incondicional nos ha permitido dedicar las horas necesarias y superar los desafíos que se presentaron en el camino.
+Por último, pero no menos importante, queremos expresar nuestro agradecimiento a todos los miembros de la comunidad de programación en línea. Sus valiosas contribuciones en los diferentes foros han enriquecido nuestro aprendizaje y nos han proporcionado una visión más amplia del mundo de la programación.
 \section{\large Introduccion}
 Los videojuegos son una forma de entretenimiento que combina elementos visuales, de audio e 
 interactivos para crear experiencias lúdicas y narrativas. Para lograrlo, los desarrolladores de 
@@ -92,8 +95,7 @@ de colisiones en videojuegos, así como sus ventajas, desventajas y aplicaciones
 una revisión bibliográfica de las fuentes más relevantes sobre el tema, se explicarán conceptos teóricos 
 y se presentarán ejemplos prácticos.\\
 \section{\large Marco Teorico}
-La generación procedural de mapas se puede definir como el uso de algoritmos para crear contenido para videojuegos sin intervención humana directa. Esta técnica se basa en la definición de reglas, parámetros y funciones que determinan las características del mapa generado, como su forma, tamaño, estructura, color o textura. Estas reglas pueden ser deterministas o aleatorias, lo que implica que el mapa generado sea siempre el mismo o diferente cada vez que se ejecuta el algoritmo. Existen diferentes tipos y niveles de generación procedural de mapas según el grado de control que tenga el desarrollador o el jugador sobre el contenido generado. Según \noindent \maskCitet{romanibanez2014}
-, se pueden distinguir cuatro niveles: generación offline, generación online, generación interactiva y generación mixta.
+La generación procedural de mapas se puede definir como el uso de algoritmos para crear contenido para videojuegos sin intervención humana directa. Esta técnica se basa en la definición de reglas, parámetros y funciones que determinan las características del mapa generado, como su forma, tamaño, estructura, color o textura. Estas reglas pueden ser deterministas o aleatorias, lo que implica que el mapa generado sea siempre el mismo o diferente cada vez que se ejecuta el algoritmo. Existen diferentes tipos y niveles de generación procedural de mapas según el grado de control que tenga el desarrollador o el jugador sobre el contenido generado. Se pueden distinguir cuatro niveles: generación offline, generación online, generación interactiva y generación mixta.
 
 En este caso estamos utilizando técnicas y algoritmos para crear contenido de forma automática o semiautomática sin la necesidad de un diseño manual. En particular, estamos utilizando la técnica de generación offline, donde el mapa se genera antes de que el juego empiece y no cambia durante la partida.
 
@@ -111,6 +113,7 @@ Análisis de datos:
 En esta etapa, se desarrollaron bocetos e ideas para la creación de un videojuego en 2D. Esto llevó a analizar los papers y video tutoriales que se enfocaban en el desarrollo de juegos RPG de vista superior ("top down"). Gracias a este análisis, se logró construir e implementar el código necesario para la generación de mapas y caminos en el juego.
 \noindent \maskCitet{koesnaedi2022}
 %\noindent \maskCitet{vilanova2021}\\
+
 \vspace{10pt}
 \vspace{10pt}
 \vspace{10pt}
@@ -127,6 +130,20 @@ Describir la detección de colisiones y su importancia para la jugabilidad y la 
 Identificar los desafíos y limitaciones de la detección de colisiones, especialmente cuando se trata de objetos en movimiento o con formas irregulares.
 Presentar diferentes técnicas y algoritmos utilizados para optimizar y simplificar la detección de colisiones, como cajas de colisión, árboles BSP o propagación de rayos.
 Analizar las ventajas, desventajas y aplicaciones de las técnicas de generación de mapas procedimentales y detección de colisiones en videojuegos.
+\subsection{Diseño de estudio:}
+En esta fase, se investigó y buscó información en documentos y artículos para la generación de mapas. Se utilizaron el algoritmo "drunkard's walk" y el algoritmo breadth first search.
+Se eligieron estos algoritmos por su funcionalidad y aplicabilidad en el contexto de los videojuegos 2D. Junto con estos algoritmos, se utilizó la librería pygame, que proporciona funciones y herramientas que facilitan la interacción con el desarrollo de juegos 2D, como la reproducción de sonido, la detección de eventos de teclado y la manipulación de gráficos.
+\subsection{Recopilación de datos:}
+En la recopilación de datos, se investigaron papers y artículos referentes a la generación procedural de mapas y la detección de colisiones. Se realizaron bocetos, utilizando técnicas y conceptos involucrados en estos procesos. Durante esta estapa se descartó el uso del algoritmo de "perlin noise" debido a que no se ajustaba a las necesidades del proyecto. En vez de él se utilizaron  los algoritmos de "drunkard's walk" y el algoritmo de búsqueda en amplitud ("breadth first search"), ya que eran aplicables para el desarrollo de juegos 2D.
+\subsection{Análisis de datos:}
+Después de la recopilación de datos, se procedió a realizar un análisis exhaustivo y una discusión detallada de los hallazgos más relevantes encontrados en los papers seleccionados. Este análisis permitió obtener una comprensión más profunda de los conceptos teóricos y las técnicas más prometedoras para el proyecto. Se examinaron los diferentes enfoques y se evaluaron sus ventajas y limitaciones en relación con los objetivos y requisitos del proyecto.
+\subsection{Resultados:}
+Como resultado de un arduo trabajo utilizando la implementación de técnicas sobre generación procedural de mapas y detección de colisiones en videojuegos 2D.
+Logramos implementar exitosamente el algoritmo "drunkard´s walk", también conocido coloquialmente como "caminata de borrracho". El cual consta en elegir un punto de partida en el mapa y se elige la dirección mediante las flechas del teclado.  
+También se implementó el algoritmo de búsqueda en amplitud ("breadth first search") para buscar el mapa más óptimo. Estos algoritmos permitieron crear mapas grandes, dinámicos y personalizados en el juego, ahorrando tiempo y recursos en el proceso de diseño lo que generó más eficiencia. El juego resultante fue capaz de generar mapas de forma automática y ofrecer una experiencia de juego interesante y desafiante para el usuario.
+\subsection{Conclusiones:}
+En conclusión, el diseño de estudio, la recopilación de datos, el análisis de datos y los resultados obtenidos en este proyecto demostraron la viabilidad y efectividad de la generación procedural de mapas y la detección de colisiones en el desarrollo de videojuegos. Estas técnicas ofrecen ventajas significativas en términos de eficiencia y personalización del contenido generado, lo que puede mejorar la experiencia del jugador y optimizar el proceso de desarrollo del juego.
+\noindent \maskCitet{smith2021}
 %\subsubsection{Título III}
 %El resto della concluían sayo de velarte, calzas de velludo para las fiestas, con sus pantuflos de lo mesmo, y los días de entresemana se honraba con su vellorí de lo más fino.
 %\paragraph{Título IV}
