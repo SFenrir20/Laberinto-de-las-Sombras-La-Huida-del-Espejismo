@@ -56,6 +56,13 @@ def generateCounting(num, total):
     mensaje = f"Generando mapas ({num+1}/{total}) - Completado: {porcentaje_completado:.2f}%"
     print(mensaje, end='\r')
     return map
+
+def generateSecureZone(startCord):
+    global currentMap
+    
+    for i in range(10):
+        for j in range(10):
+            currentMap[startCord[1]+i][startCord[0]+j] = 'Z'
     
 def generateExitMap(exitCord):
     global currentMap
@@ -67,32 +74,44 @@ def generateExitMap(exitCord):
     
     return exitMap
 
-def empty2x2(cord):
-    return currentMap[cord[1]][cord[0]] == ' ' and currentMap[cord[1]+1][cord[0]] == ' ' and currentMap[cord[1]][cord[0]+1] == ' ' and currentMap[cord[1]+1][cord[0]+1] == ' '
+def emptySpace(cord, height, width):
+    for i in range(height):
+        for j in range(width):
+            if currentMap[cord[1]+i][cord[0]+j] != ' ':
+                return False
+    return True
 
-def fill2x2(map, cord):
-    map[cord[1]][cord[0]] = 'o'
-    map[cord[1]][cord[0]+1] = 'o'
-    map[cord[1]+1][cord[0]] = 'o'
-    map[cord[1]+1][cord[0]+1] = 'o'
-    
 def placeEnemySpawn(monstersMap, numMonsters):
-    emptyLocations = [(x, y) for y in range(levelHeight) for x in range(levelWidth) if currentMap[y][x] == ' ']
+    emptyLocations = [(x, y) for y in range(levelHeight) for x in range(levelWidth) if emptySpace([x, y], 1, 1)]
     
     if numMonsters > len(emptyLocations):
         numMonsters = len(emptyLocations)
     
     random_empty_locations = random.sample(emptyLocations, numMonsters)
-    
+
     for x, y in random_empty_locations:
-        monstersMap[y][x] = 'm'
-        currentMap[y][x] = 'm'
+        monstersMap[y][x] = 'f'
+        currentMap[y][x] = 'f'
+        
+def placeBossSpawn(bossMap):
+    emptyBossLocations = [(x, y) for y in range(levelHeight) for x in range(levelWidth) if emptySpace([x, y], 4, 4)]
+    
+    random_boss_location = random.sample(emptyBossLocations, 1)
+    
+    for x, y in random_boss_location:
+        bossMap[y][x] = 'r'
+        currentMap[y][x] = 'r'
 
 def generateMonstersMap(numMonsters):
     monstersMap = getWallLevel(' ')
-    #placeEnemies(monstersMap, numMonsters)
     placeEnemySpawn(monstersMap, numMonsters)
     return monstersMap
+
+def generateBossMap(numMonsters):
+    bossMap = getWallLevel(' ')
+    placeEnemySpawn(bossMap, numMonsters)
+    placeBossSpawn(bossMap)
+    return bossMap
  
 def getNextMoves(x, y):
     return {
@@ -157,7 +176,7 @@ def evaluateLevels(levels):
         )
         
         evaluationScores.append(
-            [len(shortestSolution), generatedLevel, endCoordinate]
+            [len(shortestSolution), generatedLevel, startCoordinate, endCoordinate]
         )
     
     print()
@@ -181,10 +200,10 @@ def generateBestLevel(amountOfLevels, width, height, blocks):
     
     evaluationScores.sort(reverse = True)
     
-    score, bestLevel, endCoordinate = evaluationScores.pop(0)
+    score, bestLevel, startCoordinate, endCoordinate = evaluationScores.pop(0)
     
     print("Mapa seleccionado")
     
     currentMap = np.copy(bestLevel)
     
-    return [bestLevel, endCoordinate]
+    return [bestLevel, startCoordinate, endCoordinate]
