@@ -21,11 +21,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage{comment}
 \usepackage{marvosym}
-\usepackage[margin=lin]{geometry}
+\usepackage{geometry}
+\geometry{margin=1in}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[normalem]{ulem}
-\usepackage[spanish]{babel} 
+\usepackage[spanish]{babel}
 \selectlanguage{spanish}
 \useunder{\uline}{\ul}{}
 \newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
@@ -46,9 +47,6 @@
 \duedate{2023}
 \begin{document}
 \maketitle
-
-
-
 
 % Índices
 \pagenumbering{roman}
@@ -116,7 +114,7 @@ En esta etapa, se investigaron los papers relacionados con la generación de map
 
 Análisis de datos:
 En esta etapa, se desarrollaron bocetos e ideas para la creación de un videojuego en 2D. Esto llevó a analizar los papers y video tutoriales que se enfocaban en el desarrollo de juegos RPG de vista superior ("top down"). Gracias a este análisis, se logró construir e implementar el código necesario para la generación de mapas y caminos en el juego.
-\noindent \maskCitet{koesnaedi2022}
+\noindent\maskCitet{koesnaedi2022}
 %\noindent \maskCitet{vilanova2021}\\
 
 \vspace{10pt}
@@ -128,20 +126,23 @@ En esta etapa, se desarrollaron bocetos e ideas para la creación de un videojue
 \newpage
 \section{\large Objetivos}
 \subsection{Objetivo general} 
-Analizar las principales técnicas de generación de mapas procedimentales y detección de colisiones en videojuegos, así como sus ventajas, desventajas y aplicaciones. Para ello, se realizará una revisión bibliográfica de las fuentes más relevantes sobre el tema, se explicarán conceptos teóricos y se presentarán ejemplos prácticos.
+Recopilar, analizar e implementar distintas técnicas para la creación de mapas procedurales en videojuegos 2D. Se han utilizado algoritmos de pathfinding, que se caracterizan por su eficacia y eficiencia en la generación de rutas y caminos para los elementos del juego. Como complemento al algoritmo, se utilizó el algoritmo de Kruskal. Similar al pathfinding en el sentido de que se utiliza para generar árboles que superan el espacio mínimo, es decir el camino más corto, permitiendo establecer enlaces eficientes entre los diferentes elementos del mapa.
 \subsection{Objetivos específicos} 
-Explicar la técnica de generación de mapas procedimentales y cómo se utiliza para crear mapas más grandes, dinámicos y personalizados en videojuegos.
-Describir la detección de colisiones y su importancia para la jugabilidad y la física del juego.
-Identificar los desafíos y limitaciones de la detección de colisiones, especialmente cuando se trata de objetos en movimiento o con formas irregulares.
-Presentar diferentes técnicas y algoritmos utilizados para optimizar y simplificar la detección de colisiones, como cajas de colisión, árboles BSP o propagación de rayos.
-Analizar las ventajas, desventajas y aplicaciones de las técnicas de generación de mapas procedimentales y detección de colisiones en videojuegos.
+Estudiar y comprender los algoritmos de pathfinding utilizados para generar rutas y caminos para elementos de juego en mapas procedurales.
+Analizar la eficacia y eficiencia de los algoritmos pathfinding y Kruskal en la generación de rutas y caminos para elementos de juego en mapas procedurales.
+Utilizar el lenguaje de programación Python para implementar algoritmos en el desarrollo de videojuegos. 
+Analizar las ventajas, desventajas y aplicaciones de los algoritmos de kruskal y pathfinding
 \subsection{Diseño de estudio:}
 En esta fase, se investigó y buscó información en documentos y artículos para la generación de mapas. Se utilizaron el algoritmo "drunkard's walk" y el algoritmo breadth first search.
 Se eligieron estos algoritmos por su funcionalidad y aplicabilidad en el contexto de los videojuegos 2D. Junto con estos algoritmos, se utilizó la librería pygame, que proporciona funciones y herramientas que facilitan la interacción con el desarrollo de juegos 2D, como la reproducción de sonido, la detección de eventos de teclado y la manipulación de gráficos.
 \subsection{Recopilación de datos:}
-En la recopilación de datos, se investigaron papers y artículos referentes a la generación procedural de mapas y la detección de colisiones. Se realizaron bocetos, utilizando técnicas y conceptos involucrados en estos procesos. Durante esta estapa se descartó el uso del algoritmo de "perlin noise" debido a que no se ajustaba a las necesidades del proyecto. En vez de él se utilizaron  los algoritmos de "drunkard's walk" y el algoritmo de búsqueda en amplitud ("breadth first search"), ya que eran aplicables para el desarrollo de juegos 2D.
+En la recopilación de datos, se llevó a cabo una investigación exhaustiva que incluyó la revisión de papers y artículos relacionados con la generación procedural de mapas y la detección de colisiones en videojuegos. Durante esta etapa, se descartó el uso del algoritmo de "perlin noise" debido a que no se ajustaba a las necesidades específicas del proyecto. En su lugar, se optó por utilizar los algoritmos de "drunkard's walk" y  búsqueda en amplitud ("breadth first search"), ya que eran más adecuados para el desarrollo de juegos y cumplían con los objetivos establecidos. Además, se tuvo en cuenta los algoritmos de de pathfinding y Kruskal como los más relevantes para el desarrollo del proyecto. Para poner en marcha este proyecto se usó el lenguaje de programación Python para implementar estos algoritmos en el desarrollo de videojuegos.
 \subsection{Análisis de datos:}
-Después de la recopilación de datos, se procedió a realizar un análisis exhaustivo y una discusión detallada de los hallazgos más relevantes encontrados en los papers seleccionados. Este análisis permitió obtener una comprensión más profunda de los conceptos teóricos y las técnicas más prometedoras para el proyecto. Se examinaron los diferentes enfoques y se evaluaron sus ventajas y limitaciones en relación con los objetivos y requisitos del proyecto.
+Después de recopilar los datos, se realizó un análisis detallado de los hallazgos más relevantes encontrados en los papers seleccionados. Este análisis permitió obtener una comprensión profunda de los conceptos teóricos y las técnicas asociadas con los algoritmos de pathfinding y Kruskal. Se examinaron los diferentes enfoques y se evaluaron sus ventajas y limitaciones en relación con los objetivos específicos del proyecto.
+
+En el caso del pathfinding, se identificó la importancia de comprender y aplicar algoritmos eficientes para generar rutas y caminos para elementos de juego en mapas procedurales. Entre los algoritmos estudiados, se destacó el algoritmo de búsqueda en amplitud ("breadth first search") como una opción adecuada para el desarrollo de juegos 2D.
+
+Por otro lado, en el análisis de Kruskal, se comprendió su utilidad en la generación de rutas y caminos en mapas procedurales, especialmente en la construcción de árboles de expansión mínima. Este algoritmo es ampliamente utilizado en la resolución de problemas de optimización y ha demostrado ser eficaz en la generación de estructuras de juego.
 \subsection{Resultados:}
 Como resultado de arduo trabajo hemos logrado con éxito el objetivo de generar mapas de forma procedural. La implementación clave que nos ayudo a lograrlo fue en usar el algoritmo Kruska, este enfoque ha demostrado ser efectivo para producir entornos de juego dinámicos y variados. La combinación de Kruskal y pathfinding ha permitido superar los desafiós inherentes a la generación procedural, generando mundos virtuales cohesivos que ofrecen desafiós estratégicos y una experiencia de juego envolvente. Estos resultados sientan las bases para futuras mejoras en la generación de mapas procedurales en el ámbito de los videojuegos.
 \begin{figure}
@@ -152,8 +153,21 @@ Como resultado de arduo trabajo hemos logrado con éxito el objetivo de generar 
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{mapa2.PNG}
     \caption{Segundo Mapa generado}
+    \includegraphics[width=0.5\textwidth]{mapa2.PNG}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}
+    \centering
+    \caption{Implementación de algoritmo de Kruskal y Pathfinding}
+    \includegraphics[width=0.5\textwidth]{Kruskal-_pathfinding.png}
+    \label{fig:enter-label}
+\end{figure}
+Como resultado de la aplicación de estos algoritmos, logramos obtener un videojuego completamente funcional.
+\begin{figure}
+    \centering
+    \caption{Resultado final}
+    \includegraphics[width=0.8\textwidth]{Videojuego.png}
     \label{fig:enter-label}
 \end{figure}
 
