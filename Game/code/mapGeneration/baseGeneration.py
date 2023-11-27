@@ -77,7 +77,7 @@ def fill2x2(map, cord):
     map[cord[1]+1][cord[0]+1] = 'o'
     
 def placeEnemySpawn(monstersMap, numMonsters):
-    emptyLocations = [(x, y) for y in range(levelHeight) for x in range(levelWidth) if empty2x2([x, y])]
+    emptyLocations = [(x, y) for y in range(levelHeight) for x in range(levelWidth) if currentMap[y][x] == ' ']
     
     if numMonsters > len(emptyLocations):
         numMonsters = len(emptyLocations)
@@ -85,9 +85,7 @@ def placeEnemySpawn(monstersMap, numMonsters):
     random_empty_locations = random.sample(emptyLocations, numMonsters)
     
     for x, y in random_empty_locations:
-        fill2x2(monstersMap, [x, y])
         monstersMap[y][x] = 'm'
-        fill2x2(currentMap, [x, y])
         currentMap[y][x] = 'm'
 
 def generateMonstersMap(numMonsters):

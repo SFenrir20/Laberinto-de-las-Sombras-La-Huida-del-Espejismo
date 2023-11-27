@@ -8,7 +8,8 @@ from weapon import Weapon
 from ui import UI
 
 class Level:
-    def __init__(self):
+    def __init__(self, screen):
+        self.ui = UI(screen)
 
         self.displaySurface = pygame.display.get_surface()
 
@@ -19,7 +20,7 @@ class Level:
 
         self.createMap()
         
-        self.ui = UI()
+        self.ui = UI(screen)
 
     def createMap(self):
         layouts = {
